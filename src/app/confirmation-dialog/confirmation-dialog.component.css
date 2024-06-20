@@ -1,0 +1,60 @@
+.mat-dialog-container {
+    padding: 0;
+  }
+  
+  .confirmation-dialog {
+    background-color: #F8F4EA; /* Match the recipe card background */
+    padding: 30px;
+    border: 2px solid #D9CAB3; /* Match the recipe card border */
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+    font-family: 'Montserrat', sans-serif;
+    width: 400px; /* Adjusted width for the modal */
+    text-align: center; /* Center content */
+  }
+  
+  .mat-dialog-title {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600; /* Slightly bolder */
+  }
+  
+  .mat-dialog-content {
+    margin-bottom: 40px; /* Increased margin to create more space between text and buttons */
+    color: #555;
+  }
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: space-between; /* Evenly space buttons */
+    padding: 0 20px; /* Add some horizontal padding to create space between buttons and edges */
+  }
+  
+  button[mat-button] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.2s;
+    margin: 0 10px; /* Add some margin to create space between buttons */
+  }
+  
+  button[mat-button]:first-child {
+    background-color: #D9CAB3; /* Match card border color */
+    color: #333;
+  }
+  
+  button[mat-button]:first-child:hover {
+    background-color: #A6835E; /* Darker shade on hover */
+  }
+  
+  button[mat-button]:last-child {
+    background-color: #BF5700; /* Reddish color for delete emphasis */
+    color: white;
+  }
+  
+  button[mat-button]:last-child:hover {
+    background-color: #8E3C00; /* Darker shade on hover */
+  }

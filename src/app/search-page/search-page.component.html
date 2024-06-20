@@ -1,0 +1,9 @@
+<div class="search-container">
+  <h2>Search Recipes</h2>
+  <input type="text" [(ngModel)]="searchTerm">
+  <button (click)="searchRecipes()">Search</button>
+  <div *ngIf="searchResults.length > 0">
+    <h3>Search Results:</h3>
+    <app-recipe-card [recipeInput]="searchTerm"></app-recipe-card>
+  </div>
+</div>

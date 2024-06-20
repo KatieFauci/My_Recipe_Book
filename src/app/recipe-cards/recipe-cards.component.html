@@ -1,0 +1,113 @@
+<!-- src/app/recipe-cards/recipe-cards.component.html -->
+<div class="recipe-card-container">
+  <div *ngFor="let recipe of recipes" class="recipe-card">
+    <div class="button-container">
+      <button class="favorite-button" (click)="toggleFavorite(recipe)">
+        <i class="fa" [class.fa-heart]="recipe.details.favorite" [class.fa-heart-o]="!recipe.details.favorite"></i>
+      </button>
+      <button class="edit-button" (click)="openEditModal(recipe)">Edit</button>
+      <button class="delete-button" (click)="openDeleteConfirmationModal(recipe)">Delete</button>
+    </div>
+    <div class="recipe-info" *ngIf="recipe.details as details">
+      <h2>{{ details.Name }}</h2>
+      <span>Servings: {{ details.Servings }}</span>
+      <span>Prep Time: {{ details.Prep_Time }}</span>
+      <span>Cook Time: {{ details.Cook_Time }}</span>
+      <span>Total Time: {{ details.Total_Time }}</span>
+    </div>
+    <div class="recipe-ingredients">
+      <h3>Ingredients:</h3>
+      <ul>
+        <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient.Name }} ({{ ingredient.Quantity }} {{ ingredient.Unit }})</li>
+      </ul>
+    </div>
+    <div class="recipe-steps">
+      <h3>Steps:</h3>
+      <ul>
+        <li *ngFor="let step of recipe.steps">{{ step.Step_Number }}. {{ step.Instruction }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Template -->
+<ng-template #editModalTemplate>
+  <div class="modal">
+    <div class="modal-content">
+      <span class="close-button" (click)="closeModal()">&times;</span> 
+
+      <h2>Edit Recipe</h2>
+
+      <form *ngIf="recipeCopy" (ngSubmit)="onSubmit(recipeCopy)">
+
+        <div class="edit-recipe-info">
+          <label for="name">Name:</label>
+          <input type="text" id="name" [(ngModel)]="recipeCopy.details.Name" name="name"><br>
+
+          <label for="servings">Servings:</label>
+          <input type="number" id="servings" [(ngModel)]="recipeCopy.details.Servings" name="servings"><br>
+
+          <label for="Prep_Time">Prep Time:</label>
+          <input type="text" id="Prep_Time" [(ngModel)]="recipeCopy.details.Prep_Time" name="Prep_Time"><br>
+
+          <label for="Cook_Time">Cook Time:</label>
+          <input type="text" id="Cook_Time" [(ngModel)]="recipeCopy.details.Cook_Time" name="Cook_Time"><br>
+
+          <label for="Total_Time">Total Time:</label>
+          <input type="text" id="Total_Time" [(ngModel)]="recipeCopy.details.Total_Time" name="Total_Time"><br>
+        </div>
+
+        <div class="edit-recipe-ingredients">
+          <h3>Ingredients</h3>
+          <div *ngFor="let ingredient of recipeCopy.ingredients; let i = index">
+            <label for="ingredientName">Name:</label>
+            <input type="text" [(ngModel)]="ingredient.Name" name="ingredientName{{i}}"><br>
+            <label for="ingredientQuantity">Quantity:</label>
+            <input type="text" [(ngModel)]="ingredient.Quantity" name="ingredientQuantity{{i}}"><br>
+            <label for="ingredientUnit">Unit:</label>
+            <input type="text" [(ngModel)]="ingredient.Unit" name="ingredientUnit{{i}}"><br>
+            <button type="button" (click)="removeIngredient(i)">Remove</button>
+          </div>
+          <button type="button" (click)="addNewIngredient()">Add Ingredient</button>
+        </div>
+
+        <div class="edit-recipe-steps">
+          <h3>Steps</h3>
+          <div *ngFor="let step of recipeCopy.steps; let i = index">
+            <label for="stepInstruction">Instruction:</label>
+            <input type="text" [(ngModel)]="step.Instruction" name="stepInstruction{{i}}"><br>
+            <button type="button" (click)="removeStep(i)">Remove</button>
+          </div>
+          <button type="button" (click)="addNewStep()">Add Step</button>
+        </div>
+
+        <button type="submit">Submit</button>
+        <button type="button" (click)="closeModal()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Display the modal using *ngIf -->
+<ng-container *ngIf="isModalOpen">
+  <ng-container *ngTemplateOutlet="editModalTemplate"></ng-container>
+</ng-container>
+
+
+
+<ng-template #deleteConfirmationModal>
+  <div class="modal delete-modal">
+    <div class="modal-content">
+      <h2>Confirm Deletion</h2>
+      <p>Are you sure you want to delete this recipe?</p>
+      <div class="button-container">
+        <button class="delete-button" (click)="confirmDelete()">Yes, Delete</button>
+        <button class="cancel-button" (click)="closeDeleteConfirmationModal()">Nevermind</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-container *ngIf="isDeleteModalOpen">
+  <ng-container *ngTemplateOutlet="deleteConfirmationModal"></ng-container>
+</ng-container>

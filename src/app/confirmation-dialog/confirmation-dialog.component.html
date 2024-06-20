@@ -1,0 +1,9 @@
+<div mat-dialog-content class="confirmation-dialog">
+    <h1 mat-dialog-title>{{ title }}</h1>
+    <div mat-dialog-content>{{ message }}</div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancelClick()" *ngIf="!isSuccess">Ok</button>
+      <button mat-button (click)="onAddAnotherRecipeClick()" *ngIf="isSuccess">Add New Recipe</button>
+      <button mat-button (click)="onViewAllRecipesClick()" *ngIf="isSuccess">Return to Recipes</button>
+    </div>
+  </div>

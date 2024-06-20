@@ -1,0 +1,36 @@
+/* navbar.component.css or in your global styles.css */
+
+.navbar {
+  background-color: #D9CAB3; /* Use a similar shade as your border and buttons */
+  padding: 15px;
+  border-bottom: 2px solid #A6835E; /* A slightly darker border for separation */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 30px;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Arrange list items horizontally */
+  justify-content: center; /* Center the links in the navbar */
+}
+
+.navbar li {
+  margin-right: 25px; /* Add spacing between links */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333; /* Dark text for contrast */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500; /* Slightly bold text */
+  padding: 8px 12px; /* Add subtle padding to the links */
+  border-radius: 5px;
+  transition: background-color 0.2s; /* Smooth transition effect */
+}
+
+.navbar a:hover {
+  background-color: #F8F4EA; /* Highlight on hover with a similar shade as the recipe cards */
+}

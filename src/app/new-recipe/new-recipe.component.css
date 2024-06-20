@@ -1,0 +1,94 @@
+/* new-recipe.component.css or in your global styles.css */
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 20%); /* Calculate the height minus the navbar height */
+  margin-top: 20vh; /* Add a margin top to create space for the navbar */
+}
+
+/* Page Container */
+.add-recipe-form {
+  background-color: #F8F4EA; /* Match the recipe card background */
+  padding: 25px;
+  border: 2px solid #D9CAB3; /* Match the recipe card border */
+  border-radius: 12px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+  font-family: 'Montserrat', sans-serif;
+  width: 60%;
+}
+
+/* Form Elements */
+h2, h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 98%;
+  padding: 8px;
+  border: 1px solid #D9CAB3; /* Match the recipe card border */
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+/* Buttons */
+.add-button,
+.remove-button {
+  background-color: #D9CAB3;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.2s;
+}
+
+.remove-button {
+  background-color: #BF5700; /* Reddish color for delete */
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: #8E3C00; /* Darker shade on hover */
+}
+
+.add-button:hover {
+  background-color: #A6835E;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Ingredient and Step Inputs */
+.ingredient-input,
+.step-input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}

@@ -1,0 +1,77 @@
+<div class="form-container">
+  <form [formGroup]="addRecipeForm" (ngSubmit)="onSubmit()" class="add-recipe-form">
+    <div>
+      <label for="Name">Recipe Name:</label>
+      <input id="Name" formControlName="Name" type="text"/>
+    </div>
+
+    <div>
+      <label for="Servings">Servings:</label>
+      <input id="Servings" formControlName="Servings" type="number"/>
+    </div>
+
+    <div class="time-inputs">
+      <div formGroupName="Prep_Time">
+        <label for="Prep_Time">Prep Time:</label>
+        <input id="Prep_Time" formControlName="value" type="number"/>
+        <select id="Prep_Time_Unit" formControlName="unit">
+          <option value="second/s">Seconds</option>
+          <option value="minute/s">Minutes</option>
+          <option value="hour/s">Hours</option>
+          <option value="day/s">Days</option>
+        </select>
+      </div>
+    
+      <div formGroupName="Cook_Time">
+        <label for="Cook_Time">Cook Time:</label>
+        <input id="Cook_Time" formControlName="value" type="number"/>
+        <select id="Cook_Time_Unit" formControlName="unit">
+          <option value="second/s">Seconds</option>
+          <option value="minute/s">Minutes</option>
+          <option value="hour/s">Hours</option>
+          <option value="day/s">Days</option>
+        </select>
+      </div>
+    
+      <div formGroupName="Total_Time">
+        <label for="Total_Time">Total Time:</label>
+        <input id="Total_Time" formControlName="value" type="number"/>
+        <select id="Total_Time_Unit" formControlName="unit">
+          <option value="seconds">Seconds</option>
+          <option value="minutes">Minutes</option>
+          <option value="hours">Hours</option>
+          <option value="days">Days</option>
+        </select>
+      </div>
+    </div>
+    
+    <div formArrayName="ingredients">
+      <h3>Ingredients</h3>
+      <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i" class="ingredient-input">
+        <label for="ingredientName{{i}}">Name:</label>
+        <input id="ingredientName{{i}}" formControlName="Name" />
+    
+        <label for="ingredientQuantity{{i}}">Quantity:</label>
+        <input id="ingredientQuantity{{i}}" formControlName="Quantity" type="number"/>
+    
+        <label for="ingredientUnit{{i}}">Unit:</label>
+        <input id="ingredientUnit{{i}}" formControlName="Unit" />
+    
+        <button type="button" class="remove-button" (click)="removeIngredient(i)">-</button>
+      </div>
+      <button type="button" class="add-button" (click)="addIngredient()">Add Ingredient +</button>
+    </div>
+
+    <div formArrayName="steps">
+      <h3>Steps</h3>
+      <div *ngFor="let step of steps.controls; let i = index" [formGroupName]="i" class="step-input">
+        <label for="stepInstruction{{i}}">Instruction:</label>
+        <textarea id="stepInstruction{{i}}" formControlName="Instruction"></textarea>
+        <button type="button" class="remove-button" (click)="removeStep(i)">-</button>
+      </div>
+      <button type="button" class="add-button" (click)="addStep()">Add Step +</button>
+    </div>
+
+    <button type="submit">Submit Recipe</button>
+  </form>
+</div>

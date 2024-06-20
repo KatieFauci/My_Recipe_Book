@@ -1,0 +1,50 @@
+/* search.component.css or in your global styles.css */
+
+/* Page Container */
+.search-page {
+    background-color: #F8F4EA; /* Match the recipe card background */
+    padding: 25px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+.search-container {
+  margin-left: 20px;
+}
+  
+  /* Search Input and Button */
+  h2 {
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  input[type="text"] {
+    width: 300px; /* Adjust width as needed */
+    padding: 10px;
+    border: 2px solid #D9CAB3; /* Match the recipe card border */
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  
+  button {
+    background-color: #D9CAB3; /* Match the recipe card border */
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: #A6835E; /* Darker shade on hover */
+  }
+  
+  /* Search Results Heading */
+  h3 {
+    margin-top: 25px;
+    color: #444;
+    font-size: 18px;
+  }
